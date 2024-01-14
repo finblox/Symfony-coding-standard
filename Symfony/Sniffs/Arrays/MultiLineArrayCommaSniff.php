@@ -88,11 +88,11 @@ class MultiLineArrayCommaSniff implements Sniff
                 true
             );
             if ($arrayIsNotEmpty !== false) {
-                $lastCommaPtr = $phpcsFile->findPrevious(
+                $lastCommaPtr = intval($phpcsFile->findPrevious(
                     T_COMMA,
                     $closePtr,
                     $stackPtr
-                );
+                ));
                 while ($lastCommaPtr < $closePtr -1) {
                     $lastCommaPtr++;
 
